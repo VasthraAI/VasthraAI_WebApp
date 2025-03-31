@@ -38,8 +38,14 @@ const UploadPage = () => {
             onChange={handleFileSelect} 
           />
         </div>
-        
 
+                {/* Left Section - Text */}
+                <div className="md:w-1/2 text-center md:text-left">
+          <h2 className="text-2xl font-bold text-gray-900">Upload Your Sketch</h2>
+          <p className="text-gray-600 mt-4">
+          Once you have uploaded your sketch, VasthraAI will generate a few patterns that you can choose from. This gives you insights on what your design would look like, and inspire you with limitless possibilities to create. 
+          </p>
+        </div>
 
         
       </div>

@@ -5,7 +5,8 @@ import UploadPage from './components/Upload'
 const App = () => {
   return (
     <>
-      <UploadPage />
+      {/* <Navbar /> */}
+      <UploadPage /> {/* Renders the UploadPage, which already includes the Navbar */}
     </>
   )
 }
