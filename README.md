@@ -1,12 +1,40 @@
-# React + Vite
+# VasthraAI WebApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* This is the repository for the front end User Interface of VasthraAI. 
+* It runs on a simple React application using Vite + JavaScript.
 
-Currently, two official plugins are available:
+# Running the React Web App 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+1.  **Node.js :**
+Installation:
+	* Download from: [https://nodejs.org/](https://nodejs.org/)
+	* Verify installation:
+	 `node -v` 
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2.  **npm (Node Package Manager):**
+Installation:
+	* Pre-installed with node.
+	* Verify installation:
+	`npm -v` 
+
+* 
+
+## Steps
+
+1.  **Clone the repository**
+    * Open terminal/command prompt.
+    * Clone the repository in the required directory.
+    * Run: `git clone https://github.com/VasthraAI/VasthraAI_WebApp.git` 
+
+2.  **Navigate to Project Directory:**
+    * `cd VasthraAI_WebApp`
+
+3.  **Install packages:**
+    * Run: `npm install`
+    * This will install the needed packages.
+
+5.  **Run on development server**
+    * Run: `npm run dev`
+    * Opens app in browser (usually `http://localhost:3000`). If not, the link will be available in the cmd/terminal.
