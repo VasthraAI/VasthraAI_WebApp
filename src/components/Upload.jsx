@@ -50,7 +50,7 @@ const UploadPage = () => {
             Once you have uploaded your sketch, VasthraAI will generate a few patterns that you can choose from. This gives you insights on what your design would look like, and inspire you with limitless possibilities to create.
           </p>
           
-          {/* Buttons */}
+          {/* Reset button */}
           <div className="mt-6 flex gap-4">
             <button 
               className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition"
@@ -58,7 +58,14 @@ const UploadPage = () => {
             >
               Reset
             </button>
-            
+
+            {/* Proceed Button */}
+            <button 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition"
+            >
+              Proceed
+            </button>
+
           </div>
         </div>
       </div>
