@@ -6,7 +6,7 @@
 :root {
   font-family: "Poppins", sans-serif;
   color-scheme: dark;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgb(255, 255, 255, 0.7)), url('assets/site_bg.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.99), rgb(255, 255, 255, 0.8)), url('assets/site_bg.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
