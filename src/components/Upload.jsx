@@ -59,6 +59,7 @@ const UploadPage = () => {
 
   return (
     <div className="min-h-screen bg-cover bg-center">
+      <title>Upload Page</title>
       <Navbar />
       <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-8">
         {/* Left Section - Drag and Drop */}
