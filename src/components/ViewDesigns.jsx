@@ -3,10 +3,28 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
 const ViewDesigns = () => {
+
     const navigate = useNavigate();
     const handleNewDesign = () =>{
         navigate("/")
     }
+
+    const handleDownload = () => {
+        const imageUrls = [
+            "src\\assets\\samples\\2f2ba762c9db4434b7df1ce426e0758c.jpg",
+            "src\\assets\\samples\\05ca058f615842878768b567bc24271d.jpg",
+            "src\\assets\\samples\\7fffd3daccce43008a92674b0e265cf1.jpg"
+        ];
+        
+        imageUrls.forEach((url, index) => {
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `design-${index + 1}.jpg`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    };
 
   return (
     <div className="min-h-screen bg-cover bg-center">
@@ -40,6 +58,7 @@ const ViewDesigns = () => {
             </button>
             <button 
               className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-violet-950 transition"
+              onClick={handleDownload}
             >
               Download
             </button>
