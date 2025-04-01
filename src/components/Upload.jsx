@@ -7,6 +7,7 @@ const UploadPage = () => {
   const [secondaryColor, setSecondaryColor] = useState("#1F2EA3");
   const [error, setError] = useState("");
   const [highlightError, setHighlightError] = useState(false);
+  const [generator, setGenerator] = useState("Generator 1");
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -37,15 +38,17 @@ const UploadPage = () => {
     setSecondaryColor("#1F2EA3");
     setError("");
     setHighlightError(false);
+    setGenerator("Generator 1");
   };
 
   const handleProceed = () => {
-    if (!file){
-        setError("No file uploaded");
-        setHighlightError(true);
+    if (!file) {
+      setError("No file uploaded. Please upload a PNG or JPEG file.");
+      setHighlightError(true);
     } else {
-      setError("")
+      setError("");
       setHighlightError(false);
+      // Proceed with further processing
     }
   };
 
@@ -75,14 +78,14 @@ const UploadPage = () => {
           {error && <p className="text-red-600 mt-2">{error}</p>}
         </div>
 
-        {/* Right Section - Text, Color Pickers, and Buttons */}
+        {/* Right Section - Text, Color Pickers, Dropdown, and Buttons */}
         <div className="md:w-1/2 text-center md:text-left">
           <h2 className="text-2xl font-bold text-gray-900">Upload Your Sketch</h2>
           <p className="text-gray-900 mt-4">
             Once you have uploaded your sketch, VasthraAI will generate a few patterns that you can choose from. This gives you insights on what your design would look like, and inspire you with limitless possibilities to create.
           </p>
           
-          {/* Color Pickers */}
+          {/* Color Pickers and Generator Dropdown */}
           <div className="mt-6 flex gap-8 items-center">
             <div className="flex items-center gap-4">
               <label className="text-gray-900 font-semibold">Primary Color:</label>
@@ -101,6 +104,19 @@ const UploadPage = () => {
                 onChange={(e) => setSecondaryColor(e.target.value)} 
                 className="w-12 h-12 cursor-pointer border border-gray-300 rounded-full"
               />
+            </div>
+            <div className="flex items-center gap-4">
+              <label className="text-gray-900 font-semibold">Generator:</label>
+              <select 
+                value={generator} 
+                onChange={(e) => setGenerator(e.target.value)}
+                className="border border-gray-300 rounded-lg backdrop-blur-3xl text-violet-950 px-4 py-2 cursor-pointer"
+              >
+                <option>Generator 1</option>
+                <option>Generator 2</option>
+                <option>Generator 3</option>
+                <option>Generator 4</option>
+              </select>
             </div>
           </div>
           
