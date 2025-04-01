@@ -36,6 +36,14 @@ const UploadPage = () => {
     setError("");
   };
 
+  const handleProceed = () => {
+    if (!file){
+        setError("No file uploaded");
+    } else {
+      setError("")
+    }
+  };
+
   return (
     <div className="min-h-screen bg-cover bg-center">
       <Navbar />
@@ -50,7 +58,7 @@ const UploadPage = () => {
           {file ? (
             <p className="text-green-600">File Uploaded: {file.name}</p>
           ) : (
-            <p>Drop your designs here</p>
+            <p>Click to upload or drop your designs here</p>
           )}
           <input 
             type="file" 
@@ -101,6 +109,7 @@ const UploadPage = () => {
             </button>
             <button 
               className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-violet-950 transition"
+              onClick={handleProceed}
             >
               Proceed
             </button>
