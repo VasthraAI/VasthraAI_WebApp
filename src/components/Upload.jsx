@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
+
 
 const UploadPage = () => {
   const [file, setFile] = useState(null);
@@ -41,6 +43,8 @@ const UploadPage = () => {
     setGenerator("Generator 1");
   };
 
+  const navigate = useNavigate();
+
   const handleProceed = () => {
     if (!file) {
       setError("No file uploaded. Please upload a PNG or JPEG file.");
@@ -49,6 +53,7 @@ const UploadPage = () => {
       setError("");
       setHighlightError(false);
       // Proceed with further processing
+      navigate("/view-designs");
     }
   };
 

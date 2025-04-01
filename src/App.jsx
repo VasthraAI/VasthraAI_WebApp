@@ -1,16 +1,19 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import UploadPage from './components/Upload'
+import ViewDesigns from './components/ViewDesigns';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const App = () => {
+
+function App() {
   return (
-    <>
-      
-    <title>VasthraAI</title>{/* Page title */} 
-      {/* <Navbar /> */}
-      <UploadPage /> {/* Renders the UploadPage, which already includes the Navbar */}
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<UploadPage />} />
+        <Route path="/view-designs" element={<ViewDesigns />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
