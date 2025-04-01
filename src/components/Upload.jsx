@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-
 const UploadPage = () => {
   const [file, setFile] = useState(null);
   const [primaryColor, setPrimaryColor] = useState("#8163EE");
   const [secondaryColor, setSecondaryColor] = useState("#1F2EA3");
   const [error, setError] = useState("");
+  const [highlightError, setHighlightError] = useState(false);
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -23,9 +23,11 @@ const UploadPage = () => {
     if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
       setFile(file);
       setError("");
+      setHighlightError(false);
     } else {
       setFile(null);
       setError("Invalid file type. Please upload a PNG or JPEG file.");
+      setHighlightError(true);
     }
   };
 
@@ -34,13 +36,16 @@ const UploadPage = () => {
     setPrimaryColor("#8163EE");
     setSecondaryColor("#1F2EA3");
     setError("");
+    setHighlightError(false);
   };
 
   const handleProceed = () => {
     if (!file){
         setError("No file uploaded");
+        setHighlightError(true);
     } else {
       setError("")
+      setHighlightError(false);
     }
   };
 
@@ -50,7 +55,7 @@ const UploadPage = () => {
       <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-8">
         {/* Left Section - Drag and Drop */}
         <div 
-          className="md:w-1/2 border-2 border-dashed border-gray-400 p-16 flex flex-col items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg h-96"
+          className={`md:w-1/2 border-2 border-dashed p-16 flex flex-col items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg h-96 transition-all ${highlightError ? 'border-red-600' : 'border-gray-400'}`}
           onDrop={handleDrop}
           onDragOver={(e) => e.preventDefault()}
           onClick={() => document.getElementById("fileInput").click()}
