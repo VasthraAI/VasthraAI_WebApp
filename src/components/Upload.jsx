@@ -1,26 +1,39 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
+
 const UploadPage = () => {
   const [file, setFile] = useState(null);
   const [primaryColor, setPrimaryColor] = useState("#8163EE");
   const [secondaryColor, setSecondaryColor] = useState("#1F2EA3");
+  const [error, setError] = useState("");
 
   const handleDrop = (event) => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
-    setFile(droppedFile);
+    validateFile(droppedFile);
   };
 
   const handleFileSelect = (event) => {
     const selectedFile = event.target.files[0];
-    setFile(selectedFile);
+    validateFile(selectedFile);
+  };
+
+  const validateFile = (file) => {
+    if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
+      setFile(file);
+      setError("");
+    } else {
+      setFile(null);
+      setError("Invalid file type. Please upload a PNG or JPEG file.");
+    }
   };
 
   const handleReset = () => {
     setFile(null);
     setPrimaryColor("#8163EE");
     setSecondaryColor("#1F2EA3");
+    setError("");
   };
 
   return (
@@ -29,7 +42,7 @@ const UploadPage = () => {
       <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-8">
         {/* Left Section - Drag and Drop */}
         <div 
-          className="md:w-1/2 border-2 border-dashed border-gray-400 p-16 flex items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg h-96"
+          className="md:w-1/2 border-2 border-dashed border-gray-400 p-16 flex flex-col items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg h-96"
           onDrop={handleDrop}
           onDragOver={(e) => e.preventDefault()}
           onClick={() => document.getElementById("fileInput").click()}
@@ -43,8 +56,10 @@ const UploadPage = () => {
             type="file" 
             id="fileInput" 
             className="hidden" 
+            accept="image/png, image/jpeg"
             onChange={handleFileSelect} 
           />
+          {error && <p className="text-red-600 mt-2">{error}</p>}
         </div>
 
         {/* Right Section - Text, Color Pickers, and Buttons */}
