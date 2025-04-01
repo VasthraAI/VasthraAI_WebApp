@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
 const ViewDesigns = () => {
-
     const navigate = useNavigate();
     const handleNewDesign = () =>{
         navigate("/")
@@ -15,12 +14,12 @@ const ViewDesigns = () => {
       <title>View Designs</title>
       <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-8">
         {/* Left Section*/}
-        <div className={`md:w-3/4 border-3 p-16 flex items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg h-96 transition-all `}>
+        <div className="md:w-3/4 border-3 p-6 flex items-center justify-center text-gray-600 cursor-pointer bg-white rounded-lg transition-all w-full">
           {/* image grid */}
-          <div className="grid grid-cols-3 gap-4 w-full h-full">
-            <img src="src\assets\samples\2f2ba762c9db4434b7df1ce426e0758c.jpg" alt="Design 1" className="object-cover w-full h-full rounded-lg" />
-            <img src="src\assets\samples\05ca058f615842878768b567bc24271d.jpg" alt="Design 2" className="object-cover w-full h-full rounded-lg" />
-            <img src="src\assets\samples\7fffd3daccce43008a92674b0e265cf1.jpg" alt="Design 3" className="object-cover w-full h-full rounded-lg" />
+          <div className="grid grid-cols-3 gap-4 w-full">
+            <img src="src\assets\samples\2f2ba762c9db4434b7df1ce426e0758c.jpg" alt="Design 1" className="object-cover w-full h-auto max-h-80 rounded-lg" />
+            <img src="src\assets\samples\05ca058f615842878768b567bc24271d.jpg" alt="Design 2" className="object-cover w-full h-auto max-h-80 rounded-lg" />
+            <img src="src\assets\samples\7fffd3daccce43008a92674b0e265cf1.jpg" alt="Design 3" className="object-cover w-full h-auto max-h-80 rounded-lg" />
           </div>
         </div>
 
