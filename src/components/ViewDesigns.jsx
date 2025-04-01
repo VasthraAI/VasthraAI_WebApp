@@ -1,8 +1,15 @@
 // import React, { useState } from "react";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 const ViewDesigns = () => {
+
+
+    const navigate = useNavigate();
+    const handleNewDesign = () =>{
+        navigate("/")
+    }
 
   return (
 <div className="min-h-screen bg-cover bg-center">
@@ -26,7 +33,7 @@ const ViewDesigns = () => {
           <div className="mt-6 flex gap-4">
             <button 
               className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition"
-            //   onClick={}
+              onClick={handleNewDesign}
             >
               New Design
             </button>
